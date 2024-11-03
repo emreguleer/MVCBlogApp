@@ -1,0 +1,24 @@
+﻿@model Author 
+<div class="justify-content-center d-flex">
+    <form method="post" class="col-6">
+        <div class="card">
+            <div class="card-header bg-warning text-center bg-gradient">Yazar Güncelleme Formu</div>
+            <div class="card-body">
+
+                <div class="row mb-3">
+                    <label class="form-label">Yazar Adı</label>
+                    <input class="form-control" asp-for="Name" placeholder="Yazar Adı" required />
+                </div>
+
+            </div>
+            <div class="card-footer text-center">
+
+                <button type="submit" class="btn btn-primary">GÜNCELLE</button>
+                <button type="reset" class="btn btn-secondary">TEMİZLE</button>
+            </div>
+
+        </div>
+    </form>
+
+
+</div>

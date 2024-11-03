@@ -1,0 +1,35 @@
+﻿@using MVCBlogApp.Web.ViewModels
+@model List<ArticleVM>
+
+<style>
+    .hr{
+        border: solid;
+        border-width: 6px;
+        border-color: black;
+    }
+
+    .summary-width{
+
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+    .title{
+        margin-bottom: 30px;
+    }
+</style>
+<div class="col-12 ">
+
+@foreach(var item in Model)
+{
+    <h2 class="title">@item.Name</h2>
+    <ul >
+
+        <div class="summary-width"><p>@item.Summary  <a asp-controller="Article" asp-action="ArticleInfo" asp-route-id="@item.Id">devamını oku</a></p></div>
+        <div class="d-flex align-content-between">
+                <span><a asp-action="AuthorArticles" asp-controller="Article" asp-route-id="@item.AuthorId">@item.AuthorName</a> - <strong>@item.CreatedDate.ToString("dd.MM.yyyy HH:mm")</strong> - <a asp-action="CategoryArticles" asp-controller="Article" asp-route-id="@item.CategoryId">@item.CategoryName</a></span>
+        </div>
+    </ul>
+    <hr  />
+}
+
+</div>

@@ -1,0 +1,58 @@
+﻿@model Article
+@{
+    var auditors = (List<SelectListItem>)ViewData["auditors"];
+    var categories = (List<SelectListItem>)ViewData["categories"];
+}
+<style>
+    .h2{
+        padding-bottom: 40px;
+    }
+   .form-control{
+       border: solid;
+       border-width: 4px;
+   }
+   .form-select{
+       border: solid;
+       border-width: 4px;
+   }
+   .btn-lg{
+       border: solid;
+       border-width: 4px;
+       height: 50px;
+       width: 200px;
+   }
+</style>
+<form method="post">
+    <div class=" col-7 text-start">
+        <div class="h2">Yazı Ekle</div>
+        <div>
+            <div class="row mb-3">
+                <textarea class="form-control" asp-for="Name" placeholder="Başlık" required rows="1"></textarea>
+            </div>
+            <div clasS="row mb-3">
+                <textarea class="form-control form-control-lg" asp-for="Summary" placeholder="Özet" required rows="3"></textarea>
+            </div>
+            <div class="row mb-3">
+                <textarea class="form-control form-control-lg" asp-for="Description" placeholder="İçerik" required rows="6"></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="row mb-3 col-3">
+                      <select class="form-select" asp-items="categories" asp-for="CategoryId">Kategori</select>
+                </div>
+                   <div class="col-8">
+                      <a  asp-controller="Editor" asp-action="AddCategory">Yeni Ekle</a>
+                   </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                   <div class="row col-3 mb-3">
+                      <select class="form-select" asp-items="auditors" asp-for="AuthorId">Yazar</select>
+                   </div>
+                   <div class="col-8">
+                      <a  asp-controller="Editor" asp-action="AddAuthor">Yeni Ekle</a>
+                   </div>
+            </div>
+        </div>
+        <div class=" text-end"><button type="submit" class="btn btn-outline-dark btn-lg">Kaydet</button></div>
+    </div>
+
+</form>

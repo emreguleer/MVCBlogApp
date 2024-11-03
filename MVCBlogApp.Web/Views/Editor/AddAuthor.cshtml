@@ -1,0 +1,14 @@
+﻿@model Author
+<div>
+    <form method="post">
+        <div class="card col-6">
+            <div class="card-header text-center h3">Yazar Ekle</div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <input asp-for="Name" placeholder="Yazar adı" required />
+                </div>
+            </div>
+            <div class="card-footer text-center"><button type="submit" class="btn btn-primary">Ekle</button></div>
+        </div>
+    </form>
+</div>

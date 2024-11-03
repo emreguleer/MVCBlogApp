@@ -1,0 +1,32 @@
+﻿@using MVCBlogApp.Web.ViewModels
+@model ArticleVM
+<style>
+   
+
+    .description-width {
+        max-width: 850px;
+        overflow: hidden;
+        word-wrap: break-word; 
+    }
+    .title{
+        margin-bottom: 50px;
+    }
+    .info{
+        margin-top: 40px;
+    }
+    
+</style>
+    <h2 class="title">@Model.Name</h2>
+    <div class="d-flex justify-content-between text-start ">
+    <ul>
+        <p class="description-width">@Model.Description </p>
+        <div class="d-flex align-content-between info">
+            <span>@Model.AuthorName - <strong>@Model.CreatedDate.ToString("dd.MM.yyyy HH:mm")</strong> - @Model.CategoryName</span>
+        </div>
+    </ul>
+    <div >
+        <a asp-controller="Editor" asp-action="UpdateArticle" asp-route-id="@Model.Id" class="btn btn-warning">Güncelle</a>
+        <a asp-controller="Editor" asp-action="DeleteArticle" asp-route-id="@Model.Id" class="btn btn-danger">Sil</a>
+    </div>
+    </div>
+    
